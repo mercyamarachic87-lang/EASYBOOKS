@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="view all recorded payment transactions for Bricks House 48 Apartment">
+    <title>EasyBooks-Expenses & Purchases</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <h2>EasyBooks</h2>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="dashboard.html" class="menu-item active">Rooms & Bookings</a>
+            <a href="bar-inventory.html" class="menu-item">Bar & Inventory</a>
+            <a href="expenses.html" class="menu-item">Expenses & Purchases</a>
+            <a href="payments.html" class="menu-item">Payments</a>
+            <a href="attendance.html" class="menu-item">Staff Attendance</a>
+            <a href="reports.html" class="menu-item">Reports & Analytics</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="user-badge">Staff On Duty</p>
+            <a href="login.html" class="logout-link">Logout</a>
+        </div>
+
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <main class="main-content" id="main-content">
+            <header class="top-header">
+                <button class="menu-toggle" id="menuToggle", aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar" >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1>Payments Transactions Ledger</h1>
+            </header>
+
+            <section class="card table-section">
+                <div class="table-toolbar">
+                    <h2>all Payment Transactions</h2>
+                    <div class="search-control">
+                        <label for="payment-search" class="sr-only">Search Payment by guest name</label>
+                        <input type="text" id="payment-search" class="search-input" placeholder="Search by Guest Name, Room Number, or Payment Method">
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Guest Name</th>
+                                <th>Room Number</th>
+                                <th>Payment Method</th>
+                                <th>Amount</th>
+                                <th>Date &amp; Time</th>
+                                <th>Collected By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Payment rows will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>        

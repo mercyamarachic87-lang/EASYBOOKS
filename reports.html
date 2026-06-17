@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="view all recorded expenses and purchases for Bricks House 48 Apartment">
+    <link rel="stylesheet" href="style.css">
+    <title>EasyBooks-Expenses & Purchases</title>
+</head>
+<body class="dashboard-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>EasyBooks</h2>
+        </div>
+        <nav class="sidebar-menu" aria-label="Primary navigation">
+            <a href="dashboard.html" class="menu-item active" aria-current="page">Rooms &amp; Bookings</a>
+            <a href="bar-inventory.html" class="menu-item">Bar &amp; Inventory</a>
+            <a href="expenses.html" class="menu-item">Expenses &amp; Purchases</a>
+            <a href="payments.html" class="menu-item">Payments</a>
+            <a href="attendance.html" class="menu-item">Staff Attendance</a>
+            <a href="reports.html" class="menu-item">Reports &amp; Analytics</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="user-badge">Logged in as: <span id="currentUserName">Staff Account</span></p>
+            <a href="login.html" class="logout-link">Logout</a>
+        </div>
+
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <main class="main-content" id="main-content">
+            <header class="top-header">
+                <button class="menu-toggle" id="menuToggle", aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar" >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1>Business Operations &amp; Reports</h1>
+                <div class="report-period-control">
+                    <label for="report-period" class="sr-only">Select Report Period</label>
+                    <select id="report-period" class="period-select" aria-label="Select Report Period">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="quarterly">Quarterly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+            </header>
+
+            <section class="card metric-cards">
+                <div class="metric-card">
+                    <h3>Room Revenue</h3>
+                    <p class="metric-value">N100,000</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Bar Revenue</h3>
+                    <p class="metric-value">N50,000</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Net Income</h3>
+                    <p class="metric-value">N500,000</p>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Key Performance Metrics</h2>
+                <dl class="kpi-item">
+                    <div class="kpi-item">
+                        <dt>Total Room Bookings Processed</dt>
+                        <dd>12</dd>
+                    </div>
+                    <div class="kpi-item">
+                        <dt>Average Occupancy Rate</dt>
+                        <dd>25%</dd>
+                    </div>
+                    <div class="kpi-item">
+                        <dt>Top Selling Drink</dt>
+                        <dd>Big Stout</dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="card table-section">
+                <h2>Inventory Variances</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product Item</th>
+                                <th>Expected Closing Quantity</th>
+                                <th>Actual Count Quantity</th>
+                                <th>Variance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Big Stout</td>
+                                <td>50</td>
+                                <td>45</td>
+                                <td><span class="badge badge-warning">-5</span></td>
+                            </tr>
+                            <tr>
+                                <td>Small Stout</td>
+                                <td>30</td>
+                                <td>35</td>
+                                <td><span class="badge badge-success">+5</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>        

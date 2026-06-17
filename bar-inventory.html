@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="view all recorded bar sales and inventory for Bricks House 48 Apartment">
+    <link rel="stylesheet" href="style.css">
+    <title>EasyBooks-Bar & Inventory</title>
+</head>
+<body class="dashboard-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>EasyBooks</h2>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="dashboard.html" class="menu-item active" aria-label="Primary nagivation" aria-current="page">Rooms &amp; Bookings</a>
+            <a href="bar-inventory.html" class="menu-item" aria-label="Bar & Inventory">Bar & Inventory</a>
+            <a href="expenses.html" class="menu-item" aria-label="Expenses & Purchases">Expenses & Purchases</a>
+            <a href="payments.html" class="menu-item" aria-label="Payments">Payments</a>
+            <a href="attendance.html" class="menu-item" aria-label="Staff Attendance">Staff Attendance</a>
+            <a href="reports.html" class="menu-item" aria-label="Reports & Analytics">Reports & Analytics</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="user-badge">Staff On Duty</p>
+            <a href="login.html" class="logout-link">Logout</a>
+        </div>
+
+    </aside>
+    <main class="main-content">
+        <header class="top-header">
+            <h1>Bar & Inventory Management</h1>
+        </header>
+
+        <div  class="content-split">
+            <div class="forms-stack">
+                <section class="card form-selection">
+                    <h2>Record New Bar Sales</h2>
+                    <form class="bar-sale-form">
+                     <div class="table-responsive">
+                        <table id="pos-sales-table">
+                             <thead>
+                                <tr>
+                                    <th>Item Name</th>
+                                    <th>Quantity Sold</th>
+                                    <th>Price per Item</th>
+                                    <th>Total Price</th>
+                                    <th>Destination/Charge To</th>
+                                    <th>Action</th>  
+                                </tr>
+                             </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" value="Big Stout" readonly></td>
+                                        <td><input type="number" min="0" placeholder="0"></td>
+                                        <td><input type="price" value="2000"></td>
+                                        <td><input type="number" placeholder="0.00" readonly></td>
+                                        <td>
+                                            <select>
+                                                <option value="direct">Paid Directly (Cash/Transfer)</option>
+                                                <option value="studio">Charge to Studio</option>
+                                                <option value="executive">Charge to Executive</option>
+                                                <option value="3-bedroom">Charge to 3BedRoom Flat</option>
+                                                <option value="2-bedroom">Charge to 2BedRoom Flat</option>
+                                            </select>
+                                        </td>
+                                        <td><button type="button" class="btn-delete" disabled style="cursor: not-allowed; opacity: 0.5;">*</button></td>
+                                    </tr>  
+                                    <tr>
+                                        <td><input type="text" value="Small Stout" readonly></td>
+                                        <td><input type="number" min="0" placeholder="0"></td>
+                                        <td><input type="price" value="2000"></td>
+                                        <td><input type="number" placeholder="0.00" readonly></td>
+                                        <td>
+                                            <select>
+                                                <option value="direct">Paid Directly (Cash/Transfer)</option>
+                                                <option value="studio">Charge to Studio</option>
+                                                <option value="executive">Charge to Executive</option>
+                                                <option value="3-bedroom">Charge to 3BedRoom Flat</option>
+                                                <option value="2-bedroom">Charge to 2BedRoom Flat</option>
+                                            </select>
+                                        </td>
+                                        <td><button type="button" class="btn-delete" disabled style="cursor: not-allowed; opacity: 0.5;">*</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" value="Big Lager" readonly></td>
+                                        <td><input type="number" min="0" placeholder="0"></td>
+                                        <td><input type="price" value="2000"></td>
+                                        <td><input type="number" placeholder="0.00" readonly></td>
+                                        <td>
+                                            <select>
+                                                <option value="direct">Paid Directly (Cash/Transfer)</option>
+                                                <option value="studio">Charge to Studio</option>
+                                                <option value="executive">Charge to Executive</option>
+                                                <option value="3-bedroom">Charge to 3BedRoom Flat</option>
+                                                <option value="2-bedroom">Charge to 2BedRoom Flat</option>
+                                            </select>
+                                        </td>
+                                        <td><button type="button" class="btn-delete" disabled style="cursor: not-allowed; opacity: 0.5;">*</button></td>
+                                    </tr>
+                                </tbody>    
+                        </table>
+                     </div>
+                        
+                        <div style="margin-top: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+                            <button type="button" id="add-item-row-btn" class="btn-secondary">+ Add Unlisted Custom Item</button>
+                            <button type="submit" class="btn-primary">Submit Batch Sales Report</button>
+                        </div>
+                    </form>
+                </section>
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; width: 100%;">
+
+                    <section class="card form-section" style="height: max-content;">
+                        <h2>Record Drink Damage/Loss</h2>
+                        <form class="damage-form">
+                            <div class="form-group" style="margin-bottom: 1rem;">
+                                <label for="damage-name">Select Item</label>
+                                <select id="damage-name">
+                                    <option value="" disabled selected>Select an item</option>
+                                    <option value="big-stout">Big Stout</option>
+                                    <option value="small-stout">Small Stout</option>
+                                    <option value="big-lager">Big Lager</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom: 1rem;">
+                                <label for="damage-quantity">Quantity Damaged/Lost</label>
+                                <input type="number" id="damage-quantity" min="1" placeholder="0">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 1.25rem;">
+                                <label for="damage-reason">Reason for Damage/Loss</label>
+                                <textarea id="damage-reason" rows="3" placeholder="Provide details..." required></textarea>
+                            </div>
+                            <button type="submit" style="width: 50%;" class="btn-danger">Submit Damage Report</button> 
+                        </form>
+                    </section>
+
+                    <section class="card table-section">
+                        <h2> Daily Stock Reconciliation Sheet</h2>
+                        <div class="table-responsive">
+                            <table id="stock-reconciliation-table">
+                                <thead>
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Opening Stock</th>
+                                        <th>Added</th>
+                                        <th>Sold</th>
+                                        <th>Damaged/Lost Stock</th>
+                                        <th>Closing Stock</th>
+                                        <th>Actual Count</th>
+                                        <th>Variance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Big Stout</strong></td>
+                                        <td>100</td>
+                                        <td>50</td>
+                                        <td>80</td>
+                                        <td>5</td>
+                                        <td>65</td>
+                                        <td>60</td>
+                                        <td>-5</td>
+                                        <td><input type="number" style="width: 75%;" value="10"></td>
+                                        <td><span class="badge-negative">-1</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Small Stout</strong></td>
+                                        <td>80</td>
+                                        <td>30</td>
+                                        <td>50</td>
+                                        <td>2</td>
+                                        <td>58</td>
+                                        <td>60</td>
+                                        <td>+2</td>
+                                        <td><input type="number" style="width: 75%;" value="10"></td>
+                                        <td><span class="badge-positive">+2</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Big Lager</strong></td>
+                                        <td>120</td>
+                                        <td>40</td>
+                                        <td>90</td>
+                                        <td>3</td>
+                                        <td>67</td>
+                                        <td>65</td>
+                                        <td>-2</td>
+                                        <td><input type="number" style="width: 75%;" value="10"></td>
+                                        <td><span class="badge-neutral">0</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="margin-top: 1.5rem; text-align: right;">
+                            <button type="button" class="btn-success">Save & Close Daily Stock</button>
+                        </div>
+                    </section>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+        

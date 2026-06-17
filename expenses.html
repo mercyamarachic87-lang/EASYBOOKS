@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="view all recorded expenses and purchases for Bricks House 48 Apartment">
+    <link rel="stylesheet" href="style.css">
+    <title>EasyBooks-Expenses & Purchases</title>
+</head>
+<body class="dashboard-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>EasyBooks</h2>
+        </div>
+        <nav class="sidebar-menu" aria-label="Primary navigation">
+            <a href="dashboard.html" class="menu-item active" aria-current="page">Rooms &amp; Bookings</a>
+            <a href="bar-inventory.html" class="menu-item">Bar &amp; Inventory</a>
+            <a href="expenses.html" class="menu-item">Expenses &amp; Purchases</a>
+            <a href="payments.html" class="menu-item">Payments</a>
+            <a href="attendance.html" class="menu-item">Staff Attendance</a>
+            <a href="reports.html" class="menu-item">Reports &amp; Analytics</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="user-badge">Logged in as: <span id="currentUserName">Staff Account</span></p>
+            <a href="login.html" class="logout-link">Logout</a>
+        </div>
+
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="main-content" id="main-content">
+        <header class="top-header">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1>Outflow: Expenses &amp; Stock Purchases</h1>
+        </header>
+
+        <div  class="content-split">
+
+            <div class="forms-stack">
+
+                <section class="card form-selection">
+                    <h2>Record Business Expenses</h2>
+                    <form class="expenses-form">
+                        <div class="form-group">
+                            <label for="expense-category">Expense Category</label>
+                            <select id="expense-category" name="expense-category" required>
+                                <option value="utilities">Utilities</option>
+                                <option value="supplies">Supplies</option>
+                                <option value="maintenance">Maintenance  &amp; Repairs</option>
+                                <option value="staff">Staff Salaries</option>
+                                <option value="transport">Transport</option>
+                                <option value="cleaning">Cleaning</option>
+                                <option value="miscellaneous">Miscellaneous</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="exp-amount">Amount Spent(N)</label>
+                                <input type="number" id="exp-amount" name="exp-amount" required placeholder="0.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="exp-method">Payment Method</label>
+                                <select id="exp-method" name="exp-method" required>
+                                    <option value="cash">Cash</option>
+                                    <option value="card">Card</option>
+                                    <option value="transfer">Bank Transfer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-dasc">Detailed Description</label>
+                            <input type="text" id="exp-dasc" name="exp-dasc" required placeholder="Enter a detailed description of the expense">
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-block">Record Expense</button>
+                    </form>
+                </section>
+                <section class="card form-section">
+                    <h2>Record Bar Stock Purchase</h2>
+                    <form class="purchase-form">
+                        <div class="form-group">
+                            <label for="pur-item">Drink Item Purchased</label>
+                            <select id="pur-item" name="pur-item" required>
+                                <option value="">Select a Drink Item</option>
+                                <option value="big-stout">Big Stout</option>
+                                <option value="small-stout">Small Stout</option>
+                                <option value="big-lager">Big Lager</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pur-quantity">Quantity Purchased</label>
+                                <input type="number" id="pur-quantity" name="pur-quantity" required placeholder="Case / Units">
+                            </div>
+                            <div class="form-group">
+                                <label for="pur-cost">Unit Cost Price(N)</label>
+                                <input type="number" id="pur-cost" name="pur-cost" required placeholder="Per unit cost">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pur-supplier">Supplier Name</label>
+                            <input type="text" id="pur-supplier" name="pur-supplier" placeholder="Enter Supplier Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Record Purchase & Add to Stock</button>
+                    </form>
+                </section>
+            </div>
+
+             <section class="card table-section">
+                <h2>Recent Expenses and Purchases</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Transaction Type</th>
+                                <th>Category/Item</th>
+                                <th>Description / Supplier</th>
+                                <th>Amount(N)</th>
+                                <th>Payment Method</th>
+                                <th>Recorded By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024-06-01</td>
+                                <td>Expense</td>
+                                <td>Utilities</td>
+                                <td>Electricity Bill for May 2024</td>
+                                <td>15,000.00</td>
+                                <td>Bank Transfer</td>
+                                <td>John Doe</td>
+                            </tr>
+                            <tr>
+                                <td>2024-06-02</td>
+                                <td>Purchase</td>
+                                <td>Big Stout</td>
+                                <td>Supplies Purchase</td>
+                                <td>5,000.00</td>
+                                <td>Card</td>
+                                <td>John Doe</td>
+                            </tr>
+                            <!-- More rows can be added here -->
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </main>
+</body>
+</html>   

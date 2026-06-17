@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyBooks-Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <h2>EasyBooks</h2>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="dashboard.html" class="menu-item active">Rooms & Bookings</a>
+            <a href="bar-inventory.html" class="menu-item">Bar & Inventory</a>
+            <a href="expenses.html" class="menu-item">Expenses & Purchases</a>
+            <a href="payments.html" class="menu-item">Payments</a>
+            <a href="attendance.html" class="menu-item">Staff Attendance</a>
+            <a href="reports.html" class="menu-item">Reports & Analytics</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="user-badge">Staff On Duty</p>
+            <a href="login.html" class="logout-link">Logout</a>
+        </div>
+
+    </aside>
+    <main class="main-content">
+        <header class="top-header">
+            <h1>Rooms & Bookings Management</h1>
+            <div class="date-badge">Tuesday, June 16, 2026</div>
+        </header>
+
+        <section class="metrics-grid">
+            <div class="card metrics-card">
+                <h3>Total Rooms</h3>
+                <p class="metric-value">16</p>
+            </div>
+            <div class="card metrics-card">
+                <h3>Occupied Rooms</h3>
+                <p class="metric-value">9</p>
+            </div>
+            <div class="card metrics-card status-available">
+                <h3>Available Rooms</h3>
+                <p class="metric-value">5</p>
+            </div>
+            <div class="card metrics-card status-cleaning">
+                <h3>Cleaning & Maintenance</h3>
+                <p class="metric-value">2</p>
+            </div>
+        </section>
+
+        <div class="content-split">
+            <section class="card form-section">
+                <h2>New Guest Check-In</h2>
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="guest-name">Guest Name</label>
+                        <input type="text" id="guest-name" name="guest-name" required placeholder="Enter Guest Name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guest-phone">Phone Number</label>
+                            <input type="tel" id="guest-phone" name="guest-phone" required placeholder="Enter Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="room-select">Assign Room</label>
+                            <select id="room-select" name="room-select" required>
+                                <option value="">Select a Room</option>
+                                <option value="room-1">2-BedRoom Flat</option>
+                                <option value="room-2">Studio Room</option>
+                                <option value="room-3">Executive Room</option>
+                                <option value="room-4">3-BedRoom Flat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Process Check-In</button>
+                </form>
+            </section>
+
+            <section class="card table-section">
+                <h2>Active Live Bookings</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Room</th>
+                                <th>Guest Name</th>
+                                <th>Check-In Date</th>
+                                <th>Rate Charged</th>
+                                <th>Payment Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Studio Room</strong></td>
+                                <td>John Doe</td>
+                                <td>16 Jun, 14:20</td>
+                                <td>40,000</td>
+                                <td><span class="badge badge-paid">Paid</span></td>
+                                <td><button class="btn btn-sm btn-outline">Check-Out</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Executive Room</strong></td>
+                                <td>Jane Smith</td>
+                                <td>16 Jun, 14:20</td>
+                                <td>50,000</td>
+                                <td><span class="badge badge-pending">Pending</span></td>
+                                <td><button class="btn btn-sm btn-outline">Check-Out</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>3-BedRoom Flat</strong></td>
+                                <td>Bob Johnson</td>
+                                <td>16 Jun, 14:20</td>
+                                <td>250,000</td>
+                                <td><span class="badge badge-paid">Paid</span></td>
+                                <td><button class="btn btn-sm btn-outline">Check-Out</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>2-BedRoom Flat</strong></td>
+                                <td>Alice Brown</td>
+                                <td>16 Jun, 14:20</td>
+                                <td>150,000</td>
+                                <td><span class="badge badge-pending">Pending</span></td>
+                                <td><button class="btn btn-sm btn-outline">Check-Out</button></td>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+</body>
+</html>

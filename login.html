@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyBooks-Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="Login-Page">
+    <div class="Login-card">
+        <div class="Login-Header">
+         <h2>EASYBOOKS</h2>
+         <P>Bricks House 48 Apartment</P>
+        </div>
+
+        <form action="dashboard.html" method="GET" class="login-form">
+            <div class="form-group">
+                <label for="username">Username / Email</label>
+                <input type="text" id="username" name="username" required, placeholder="Enter Your Username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required, placeholder="Enter Your Password">
+            </div class="form-group">
+            <label for="Role">Role</label>
+            <select id="Role" name="Role", required>
+                <option value="Staff">Staff</option>
+                <option value="Admin">Admin/Owner</option>
+            </select>
+
+            <p class="Location Note">Logging in will securely record your location</p>
+            <button type="submit" class="btn btn-primary btn-block">Authorize & Login</button>
+        </form>
+       
+    </div>
+
+    
+</body>
+</html>
