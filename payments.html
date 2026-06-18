@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="view all recorded payment transactions for Bricks House 48 Apartment">
-    <title>EasyBooks-Expenses & Purchases</title>
+    <meta name="color-scheme" content="light only">
+    <meta name="description" content="view all recorded expenses and purchases for Bricks House 48 Apartment">
     <link rel="stylesheet" href="style.css">
+    <title>EasyBooks-Expenses & Purchases</title>
 </head>
 <body class="dashboard-page">
-    <aside class="sidebar">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
             <h2>EasyBooks</h2>
         </div>
-        <nav class="sidebar-menu">
-            <a href="dashboard.html" class="menu-item active">Rooms & Bookings</a>
-            <a href="bar-inventory.html" class="menu-item">Bar & Inventory</a>
-            <a href="expenses.html" class="menu-item">Expenses & Purchases</a>
+        <nav class="sidebar-menu" aria-label="Primary navigation">
+            <a href="dashboard.html" class="menu-item active" aria-current="page">Rooms &amp; Bookings</a>
+            <a href="bar-inventory.html" class="menu-item">Bar &amp; Inventory</a>
+            <a href="expenses.html" class="menu-item">Expenses &amp; Purchases</a>
             <a href="payments.html" class="menu-item">Payments</a>
             <a href="attendance.html" class="menu-item">Staff Attendance</a>
-            <a href="reports.html" class="menu-item">Reports & Analytics</a>
+            <a href="reports.html" class="menu-item">Reports &amp; Analytics</a>
         </nav>
 
         <div class="sidebar-footer">
-            <p class="user-badge">Staff On Duty</p>
-            <a href="login.html" class="logout-link">Logout</a>
+            <p class="user-badge">Logged in as: <span id="currentUserName">Staff Account</span></p>
+            <a href="index.html" class="logout-link">Logout</a>
         </div>
 
     </aside>

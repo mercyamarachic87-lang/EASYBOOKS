@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
     <meta name="description" content="view all recorded bar sales and inventory for Bricks House 48 Apartment">
     <link rel="stylesheet" href="style.css">
     <title>EasyBooks-Bar & Inventory</title>
@@ -17,25 +18,31 @@
         </div>
         <nav class="sidebar-menu">
             <a href="dashboard.html" class="menu-item active" aria-label="Primary nagivation" aria-current="page">Rooms &amp; Bookings</a>
-            <a href="bar-inventory.html" class="menu-item" aria-label="Bar & Inventory">Bar & Inventory</a>
-            <a href="expenses.html" class="menu-item" aria-label="Expenses & Purchases">Expenses & Purchases</a>
-            <a href="payments.html" class="menu-item" aria-label="Payments">Payments</a>
-            <a href="attendance.html" class="menu-item" aria-label="Staff Attendance">Staff Attendance</a>
-            <a href="reports.html" class="menu-item" aria-label="Reports & Analytics">Reports & Analytics</a>
+            <a href="bar-inventory.html" class="menu-item">Bar &amp; Inventory</a>
+            <a href="expenses.html" class="menu-item">Expenses &amp; Purchases</a>
+            <a href="payments.html" class="menu-item">Payments</a>
+            <a href="attendance.html" class="menu-item">Staff Attendance</a>
+            <a href="reports.html" class="menu-item">Reports &amp; Analytics</a>
         </nav>
 
         <div class="sidebar-footer">
-            <p class="user-badge">Staff On Duty</p>
-            <a href="login.html" class="logout-link">Logout</a>
+            <p class="user-badge">Login in as: <span id="currentUserName">Staff Account</span></p>
+            <a href="index.html" class="logout-link">Logout</a>
         </div>
 
     </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <main class="main-content">
         <header class="top-header">
-            <h1>Bar & Inventory Management</h1>
+            <button id="sidebarToggle" aria-label="Toggle sidebar">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <h1>Bar &amp; Inventory Management</h1>
         </header>
 
-        <div  class="content-split">
+        <div  class="content-split-verical">
             <div class="forms-stack">
                 <section class="card form-selection">
                     <h2>Record New Bar Sales</h2>
@@ -126,8 +133,8 @@
                                 </select>
                             </div>
                             <div class="form-group" style="margin-bottom: 1rem;">
-                                <label for="damage-quantity">Quantity Damaged/Lost</label>
-                                <input type="number" id="damage-quantity" min="1" placeholder="0">
+                                <label for="damage-qty">Quantity Damaged/Lost</label>
+                                <input type="number" id="damage-qty" min="1" placeholder="0">
                             </div>
                             <div class="form-group" style="margin-bottom: 1.25rem;">
                                 <label for="damage-reason">Reason for Damage/Loss</label>
@@ -148,8 +155,8 @@
                                         <th>Added</th>
                                         <th>Sold</th>
                                         <th>Damaged/Lost Stock</th>
-                                        <th>Closing Stock</th>
-                                        <th>Actual Count</th>
+                                        <th>Expected Closing Stock</th>
+                                        <th>Actual Count Stock</th>
                                         <th>Variance</th>
                                     </tr>
                                 </thead>
@@ -163,7 +170,7 @@
                                         <td>65</td>
                                         <td>60</td>
                                         <td>-5</td>
-                                        <td><input type="number" style="width: 75%;" value="10"></td>
+                                        <td><input type="number" class="variance-input" aria-label="Actual counted stock for Big Stout" value="10"></td>
                                         <td><span class="badge-negative">-1</span></td>
                                     </tr>
                                     <tr>
@@ -175,7 +182,7 @@
                                         <td>58</td>
                                         <td>60</td>
                                         <td>+2</td>
-                                        <td><input type="number" style="width: 75%;" value="10"></td>
+                                        <td><input type="number" class="variance-input" aria-label="Actual counted stock for Small Stout" value="10"></td>
                                         <td><span class="badge-positive">+2</span></td>
                                     </tr>
                                     <tr>
@@ -187,14 +194,14 @@
                                         <td>67</td>
                                         <td>65</td>
                                         <td>-2</td>
-                                        <td><input type="number" style="width: 75%;" value="10"></td>
+                                        <td><input type="number" class="variance-input" aria-label="Actual counted stock for Big Lager" value="10"></td>
                                         <td><span class="badge-neutral">0</span></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div style="margin-top: 1.5rem; text-align: right;">
-                            <button type="button" class="btn-success">Save & Close Daily Stock</button>
+                        <div cllass="table-footer-actions">
+                            <button type="button" class="btn btn-success">Save &amp; Close Daily Stock</button>
                         </div>
                     </section>
 
@@ -203,6 +210,8 @@
             </div>
         </div>
     </main>
+    </div>
+    <script src="app.js" defer></script>
 </body>
 </html>
         

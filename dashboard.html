@@ -3,41 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyBooks-Dashboard</title>
+    <meta name="color-scheme" content="light only">
+    <meta name="description" content="Dashboard for EasyBooks to manage rooms, bookings, and other operations">
     <link rel="stylesheet" href="style.css">
+    <title>EasyBooks-Dashboard</title>
 </head>
 <body class="dashboard-page">
-    <aside class="sidebar">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
             <h2>EasyBooks</h2>
         </div>
-        <nav class="sidebar-menu">
-            <a href="dashboard.html" class="menu-item active">Rooms & Bookings</a>
-            <a href="bar-inventory.html" class="menu-item">Bar & Inventory</a>
-            <a href="expenses.html" class="menu-item">Expenses & Purchases</a>
+        <nav class="sidebar-menu" aria-label="Primary Navigation">
+            <a href="dashboard.html" class="menu-item active" aria-current="page">Rooms &amp; Bookings</a>
+            <a href="bar-inventory.html" class="menu-item">Bar &amp; Inventory</a>
+            <a href="expenses.html" class="menu-item">Expenses &amp; Purchases</a>
             <a href="payments.html" class="menu-item">Payments</a>
             <a href="attendance.html" class="menu-item">Staff Attendance</a>
-            <a href="reports.html" class="menu-item">Reports & Analytics</a>
+            <a href="reports.html" class="menu-item">Reports &amp; Analytics</a>
         </nav>
 
         <div class="sidebar-footer">
-            <p class="user-badge">Staff On Duty</p>
-            <a href="login.html" class="logout-link">Logout</a>
+            <p class="user-badge">Logged in as: <span id="currentUserName">Staff Account</span></p>
+            <a href="index.html" class="logout-link">Logout</a>
         </div>
 
     </aside>
-    <main class="main-content">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="main-content" id="main-content">
         <header class="top-header">
-            <h1>Rooms & Bookings Management</h1>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1>Rooms &amp; Bookings Management</h1>
             <div class="date-badge">Tuesday, June 16, 2026</div>
         </header>
 
-        <section class="metrics-grid">
+        <section class="metrics-grid" aria-label="Room status overview">
             <div class="card metrics-card">
                 <h3>Total Rooms</h3>
                 <p class="metric-value">16</p>
             </div>
-            <div class="card metrics-card">
+            <div class="card metrics-card" status-occupied>
                 <h3>Occupied Rooms</h3>
                 <p class="metric-value">9</p>
             </div>
@@ -72,6 +83,21 @@
                                 <option value="room-2">Studio Room</option>
                                 <option value="room-3">Executive Room</option>
                                 <option value="room-4">3-BedRoom Flat</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rate-charged">Rate Charged (₦)</label>
+                            <input type="number" id="rate-charged" name="rate-charged" required placeholder="Enter Rate Charged">
+                        </div>
+                        <div class="form-group">
+                            <label for="payment-status">Payment Status</label>
+                            <select id="payment-status" name="payment-status" required>
+                                <option value="">Select Payment Status</option>
+                                <option value="paid">Paid</option>
+                                <option value="pending">Pending</option>
+                                <option value="partial">Partial</option>
                             </select>
                         </div>
                     </div>
@@ -131,6 +157,7 @@
             </section>
         </div>
     </main>
-    
+    </div>
+    <script src="app.js" defer></script>
 </body>
 </html>

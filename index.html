@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta name="description" content="Login to EasyBooks manage bookings, bar sales and reports for Bricks House 48 Apartment">
+    <link rel="stylesheet" href="style.css">
+    <title>EasyBooks-Login</title>
+</head>
+<body class="login-page">
+    <main class="login-main">
+      <div class="login-card">
+        <div class="login-header">
+         <h2>EASYBOOKS</h2>
+         <P>Bricks House 48 Apartment</P>
+        </div>
+
+        <form action="dashboard.html" method="GET" class="login-form">
+            <div class="form-group">
+                <label for="username">Username / Email</label>
+                <input type="text" id="username" name="username" required, placeholder="Enter Your Username", autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required, placeholder="..........", autocomplete="current-password">
+            </div>
+            <label for="role">Role</label>
+            <select id="role" name="role", required>
+                <option value="Staff">Staff</option>
+                <option value="Admin">Admin/Owner</option>
+            </select>
+
+            <p class="location-note">Logging in will securely record your location</p>
+            <button type="submit" class="btn btn-primary btn-block">Authorize &amp; Login</button>
+        </form>
+       
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

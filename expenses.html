@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
     <meta name="description" content="view all recorded expenses and purchases for Bricks House 48 Apartment">
     <link rel="stylesheet" href="style.css">
     <title>EasyBooks-Expenses & Purchases</title>
@@ -26,7 +27,7 @@
 
         <div class="sidebar-footer">
             <p class="user-badge">Logged in as: <span id="currentUserName">Staff Account</span></p>
-            <a href="login.html" class="logout-link">Logout</a>
+            <a href="index.html" class="logout-link">Logout</a>
         </div>
 
     </aside>
@@ -62,7 +63,7 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="exp-amount">Amount Spent(N)</label>
+                                <label for="exp-amount">Amount Spent (₦)</label>
                                 <input type="number" id="exp-amount" name="exp-amount" required placeholder="0.00">
                             </div>
                             <div class="form-group">
@@ -70,13 +71,13 @@
                                 <select id="exp-method" name="exp-method" required>
                                     <option value="cash">Cash</option>
                                     <option value="card">Card</option>
-                                    <option value="transfer">Bank Transfer</option>
+                                    <option value="bank-transfer">Bank Transfer</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="exp-dasc">Detailed Description</label>
-                            <input type="text" id="exp-dasc" name="exp-dasc" required placeholder="Enter a detailed description of the expense">
+                            <label for="exp-desc">Detailed Description</label>
+                            <input type="text" id="exp-desc" name="exp-desc" required placeholder="Enter a detailed description of the expense">
                         </div>
                         <button type="submit" class="btn btn-danger btn-block">Record Expense</button>
                     </form>
@@ -95,11 +96,11 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="pur-quantity">Quantity Purchased</label>
-                                <input type="number" id="pur-quantity" name="pur-quantity" required placeholder="Case / Units">
+                                <label for="pur-qty">Quantity Purchased</label>
+                                <input type="number" id="pur-qty" name="pur-qty" required placeholder="Case / Units">
                             </div>
                             <div class="form-group">
-                                <label for="pur-cost">Unit Cost Price(N)</label>
+                                <label for="pur-cost">Unit Cost Price (₦)</label>
                                 <input type="number" id="pur-cost" name="pur-cost" required placeholder="Per unit cost">
                             </div>
                         </div>
@@ -122,7 +123,7 @@
                                 <th>Transaction Type</th>
                                 <th>Category/Item</th>
                                 <th>Description / Supplier</th>
-                                <th>Amount(N)</th>
+                                <th>Amount (₦)</th>
                                 <th>Payment Method</th>
                                 <th>Recorded By</th>
                             </tr>
@@ -152,5 +153,7 @@
                 </div>
         </div>
     </main>
+    </div>
+    <script src="app.js" defer></script>
 </body>
 </html>   
