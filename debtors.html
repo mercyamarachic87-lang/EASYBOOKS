@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta name="description" content="Track debtors and creditors for Bricks House 48 Apartment">
+    <link rel="stylesheet" href="style.css">
+    <title>EasyBooks-Debtors &amp; Creditors</title>
+</head>
+<body class="dashboard-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>EasyBooks</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">X</button>
+
+        </div>
+        <nav class="sidebar-menu" aria-label="Primary navigation">
+            <a href="dashboard.html" class="menu-item active" aria-current="page">Rooms &amp; Bookings</a>
+            <a href="bar-inventory.html" class="menu-item">Bar &amp; Inventory</a>
+            <a href="room-supplies.html" class="menu-item">Room Supplies</a>
+            <a href="expenses.html" class="menu-item">Expenses &amp; Purchases</a>
+            <a href="debtors.html" class="menu-item">Debtors &amp; Creditors</a>
+            <a href="payments.html" class="menu-item">Payments</a>
+            <a href="attendance.html" class="menu-item">Staff Attendance</a>
+            <a href="reports.html" class="menu-item">Reports &amp; Analytics</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="user-badge">Logged in as: <span id="currentUserName">Staff Account</span></p>
+            <a href="index.html" class="logout-link">Logout</a>
+        </div>
+
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="main-content" id="main-content">
+        <header class="top-header">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1>Debtors &amp; Creditors Ledger</h1>
+        </header>
+
+        <section class="metrics-grid" aria-label="Debtors and Creditors Overview">
+            <div class="card metrics-card status-occupied">
+                <h3>Total Owed To Us</h3>
+                <p class="metric-value" id="totalDebtors">N0</p>
+            </div>
+             <div class="card metrics-card status-cleaning">
+                <h3>Total We Owe</h3>
+                <p class="metric-value" id="totalCreditors">N0</p>
+            </div>
+             <div class="card metrics-card status-cleaning">
+                <h3>Open Debtors Record</h3>
+                <p class="metric-value" id="totalDebtors">0</p>
+            </div>
+             <div class="card metrics-card status-cleaning">
+                <h3>Open Creditors Record</h3>
+                <p class="metric-value" id="totalCreditors">0</p>
+            </div>
+        </section>
+
+        <div class="content-split">
+            <section class="card form-section">
+                <h2>Record New Entry</h2>
+                <form class="debtor-form" id="debtorForm">
+                    <div class="form-group">
+                        <label for="dc-type">Entry Type</label>
+                        <select id="dc-type" required>
+                            <option value="debtor">Debtors - they Owe us money</option>
+                            <option value="creditor">Creditors - we Owe them money</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dc-name">Name (Person / Company)</label>
+                        <input type="text" id="dc-name" required placeholder="Enter the person or company name">
+                    </div>
+                    <div class="form-group">
+                        <label for="dc-category">Category</label>
+                        <select id="dc-type" required>
+                            <option value="guest">Guest (Unpaid / Partial Lodging)</option>
+                            <option value="supplier">Supplier / Vendor</option>
+                            <option value="bar">Bar Credit</option>
+                            <option value="utility">Utility / Service Provider</option>
+                            <option value="other">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                             <label for="dc-amount">Amount N(0)</label>
+                             <input type="number" id="dc-amount" required placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                         <label for="dc-status">Status</label>
+                          <select id="dc-status" required>
+                            <option value="pending">Pending</option>
+                            <option value="partial">Partial</option>
+                            <option value="settled">Settled</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                             <label for="dc-desc">Description / Note</label>
+                             <input type="text" id="dc-desc" required placeholder="Enter the description">
+                    </div>
+                    <div class="form-group">
+                             <label for="dc-phone">Phone Number</label>
+                             <input type="tel" id="dc-phone" required placeholder="080.....">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Add to Ledger</button>
+                </form>
+            </section>
+
+            <div class="form-stack">
+                <section class="card table-section">
+                    <div class="table-toolbar">
+                        <h2 class="ledger-heading ledger-heading--debtors">Debtors <span class="ledger-sub">(owe us money)</span></h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="debtorsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Amount (N)</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Chidi Obi</strong></td>
+                                    <td>Guest</td>
+                                    <td class="mono-cell">N25,000</td>
+                                    <td>Balance for Studio 2 stay</td>
+                                    <td>15 Jun, 11:00</td>
+                                    <td><span class="badge badge-partial">Partial</span></td>
+                                    <td>
+                                    <button class="btn btn-sm btn-success settle-btn">Settle</button>
+                                </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="card table-section">
+                    <div class="table-toolbar">
+                        <h2 class="ledger-heading ledger-heading--creditors">Creditors <span class="ledger-sub">(we owe them money)</span></h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="creditorsTable">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Amount (N)</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Ndioba Beverage Store</strong></td>
+                                    <td>Supplier</td>
+                                    <td class="mono-cell">N20,000</td>
+                                    <td>Oustanding balance on last restock</td>
+                                    <td>14 Jun, 9:30</td>
+                                    <td><span class="badge badge-expense">Pending</span></td>
+                                    <td>
+                                      <button class="btn btn-sm btn-success settle-btn">Settle</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>                 
+            </div>
+        </div>
+    </main>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>    

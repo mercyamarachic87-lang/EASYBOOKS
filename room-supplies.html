@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <meta name="description" content="Track guest amenity supplies for Bricks House 48 Apartment">
+    <link rel="stylesheet" href="style.css">
+    <title>EasyBooks-Room Supplies</title>
+</head>
+<body class="dashboard-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h2>EasyBooks</h2>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation menu">X</button>
+        </div>
+        <nav class="sidebar-menu" aria-label="Primary navigation">
+            <a href="dashboard.html" class="menu-item active" aria-current="page">Rooms &amp; Bookings</a>
+            <a href="bar-inventory.html" class="menu-item">Bar &amp; Inventory</a>
+            <a href="room-supplies.html" class="menu-item">Room Supplies</a>
+            <a href="expenses.html" class="menu-item">Expenses &amp; Purchases</a>
+            <a href="debtors.html" class="menu-item">Debtors &amp; Creditors</a>
+            <a href="payments.html" class="menu-item">Payments</a>
+            <a href="attendance.html" class="menu-item">Staff Attendance</a>
+            <a href="reports.html" class="menu-item">Reports &amp; Analytics</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p class="user-badge">Logged in as: <span id="currentUserName">Staff Account</span></p>
+            <a href="index.html" class="logout-link">Logout</a>
+        </div>
+
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="main-content" id="main-content">
+        <header class="top-header">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <h1>Debtors &amp; Creditors Ledger</h1>
+        </header>
+
+        <div class="content-split-vertical">
+            <section class="card form-section">
+                <h2>Issue Supplies to a Room</h2>
+                <form class="supplies-issue-form" id="suppliesIssueForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="issue-room">Room / Flat</label>
+                            <select id="issue-room" required>
+                                <option value="3-bedroom-flat">3-Bedroom Flat</option>
+                                <option value="2-bedroom-flat">2-Bedroom Flat</option>
+                                <option value="studio">Studio Room</option>
+                                <option value="executive">Executive Room</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="issue-guest">Guest Name</label>
+                            <input type="text" id="issue-guest" placeholder="Enter Guess Name">
+                        </div>
+                    </div>
+                        <p class="supplies-sub-label">Enter quantities issued</p>
+
+                        <div class="supplies-issue-grid">
+                            <div class="supply-issue-item">
+                                <label for="issue-tissue">Tissue</label>
+                                <input type="number" id="issue-tissue" min="0" value="0" data-item="tissue">
+                            </div>
+                            <div class="supply-issue-item">
+                                <label for="issue-soap">Soap</label>
+                                <input type="number" id="issue-soap" min="0" value="0" data-item="tissue">
+                            </div>
+                            <div class="supply-issue-item">
+                                <label for="issue-towel">Towel</label>
+                                <input type="number" id="issue-towel" min="0" value="0" data-item="tissue">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Record Issuance &amp; Deduct Stock</button>   
+                </form>
+            </section>
+
+        <div class="ar-secondary-grid">
+
+            <section class="card form-section">
+                <h2>Record Supply Damage / Loss</h2>
+                <form class="supplies-damage-form" id="suppliesDamageForm">
+                    <div class="form-group">
+                        <label for="sdamage-item">Select Item</label>
+                        <select id="sdamage-item" required>
+                            <option value="tissue">Tissue</option>
+                            <option value="soap">Soap</option>
+                            <option value="towel">Towel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sdamage-qty">Quantity</label>
+                        <input type="text" id="sdamage-qty" min="1" required placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="sdamage-reason">Reason</label>
+                        <input type="text" id="sdamage-reason" required placeholder="Towel torn beyond use">
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block">Log Supply Damage</button>
+                </form>
+            </section>
+
+
+            <section class="card table-section">
+                <div class="table-toolbar">
+                    <h2>Daily Supply Reconciliaton</h2>
+                    <form id="addSupplyItemForm" class="inline-add-form">
+                        <label for="newSupplyName" class="sr-only">New Item Name</label>
+                        <input type="text" id="newSupplyName" placeholder="New item name" required>
+                        <label for="newSupplyOpening" class="sr-only">Opening Stock</label>
+                        <input type="number" id="newSupplyOpening" placeholder="Opening qty" min="0" required>
+                        <button type="submit" class="btn btn-sm btn secondary">+ Add Item</button>
+                    </form>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="suppliesReconTable">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Opening</th>
+                                <th>Added</th>
+                                <th>Issued</th>
+                                <th>Damaged</th>
+                                <th>Expected</th>
+                                <th>Actual Count</th>
+                                <th>Variance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-supply="tissue">
+                                <td><strong>Tissue</strong></td>
+                                <td>40</td>
+                                <td>20</td>
+                                <td>12</td>
+                                <td>0</td>
+                                <td>48</td>
+                                <td><input type="number" class="variance-input" value="48" aria aria-label="Actual count - Tissue"></td>
+                                <td><span class="badge badge-success">0</span></td>
+                            </tr>
+                            <tr data-supply="soap">
+                                <td><strong>Soap</strong></td>
+                                <td>30</td>
+                                <td>10</td>
+                                <td>9</td>
+                                <td>2</td>
+                                <td>29</td>
+                                <td><input type="number" class="variance-input" value="29" aria aria-label="Actual count - Soap"></td>
+                                <td><span class="badge badge-success">0</span></td>
+                            </tr>
+                            <tr data-supply="towel">
+                                <td><strong>towel</strong></td>
+                                <td>45</td>
+                                <td>20</td>
+                                <td>10</td>
+                                <td>5</td>
+                                <td>50</td>
+                                <td><input type="number" class="variance-input" value="47" aria aria-label="Actual count - Towel"></td>
+                                <td><span class="badge badge-warning">-3</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer-ations">
+                    <button type="button" id="saveSuppliesCount" class="btn btn-success">Save &amp; Close Daily Supply Count</button>
+                </div>
+            </section>
+          </div>
+
+           <section class="card table-section">
+            <h2>Supply Issuance Log</h2>
+            <div class="table-responsive">
+                <table id="suppliesLogTable">
+                    <thead>
+                        <tr>
+                            <th>Room</th>
+                            <th>Guest</th>
+                            <th>Items Issued</th>
+                            <th>Date &amp; Time</th>
+                            <th>Recorded By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Executive Room</strong></td>
+                            <td>Chidi Obi</td>
+                            <td>Tissue *2, Soap *2 Towel *2</td>
+                            <td>16 Jun, 14:25</td>
+                            <td>Front Desk</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           </section>
+        </div>
+    </main>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+</html>
